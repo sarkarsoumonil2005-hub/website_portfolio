@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soumonil Sarkar | Portfolio - BCA Student & Aspiring Developer</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Portfolio of Soumonil Sarkar, a motivated BCA student at Narula Institute of Technology, specializing in Software Development, DBMS, Web Development, and Data Analytics.">
+    <meta name="keywords"
+        content="Soumonil Sarkar, Soumonil, Sarkar, BCA student, software developer, database design, data analytics, Narula Institute of Technology, Khardaha, West Bengal">
+    <meta name="author" content="Soumonil Sarkar">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Preloader Screen -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <img src="logo.jpg" alt="Logo" class="preloader-logo">
+            <h1 class="preloader-title">Welcome</h1>
+            <div class="preloader-bar">
+                <div class="preloader-progress" id="preloader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas Background for Tech Particles -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Header / Navbar -->
+    <header class="main-header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo" id="nav-logo">
+                <img src="logo.jpg" alt="SS Logo" class="logo-img">
+                <span class="logo-text">Soumonil Sarkar</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#certifications" class="nav-link">Certificates</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="#contact" class="btn-talk" id="btn-talk">
+                <span>Let's Talk</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav" id="mobile-nav">
+        <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+        <ul>
+            <li><a href="#home" class="mobile-link">Home</a></li>
+            <li><a href="#about" class="mobile-link">About</a></li>
+            <li><a href="#education" class="mobile-link">Education</a></li>
+            <li><a href="#skills" class="mobile-link">Skills</a></li>
+            <li><a href="#projects" class="mobile-link">Projects</a></li>
+            <li><a href="#experience" class="mobile-link">Experience</a></li>
+            <li><a href="#certifications" class="mobile-link">Certificates</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Open to Internships & full-time roles</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Hi, I'm <br>
+                        <span class="name-bold">Soumonil</span> <span class="name-red">Sarkar</span>
+                    </h1>
+                    <h2 class="hero-typewriter">
+                        I build with <span class="typewriter-text" id="typewriter">Data.</span><span
+                            class="typewriter-cursor">|</span>
+                    </h2>
+
+                    <p class="hero-desc">
+                        Motivated BCA Final Year student with a strong foundation in Programming, DBMS, Data Structures
+                        and Computer Networks — passionate about developing innovative solutions with modern
+                        technologies.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary" id="btn-portfolio-hero">
+                            <span>View Portfolio</span>
+                            <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                        </a>
+                        <a href="resume.pdf" target="_blank" class="btn btn-outline" id="btn-resume-hero" onclick="openCertModal('resume.pdf', 'Soumonil Sarkar - Resume'); return false;">
+                            <i class="fa-regular fa-file-pdf btn-icon"></i>
+                            <span>View Resume</span>
+                        </a>
+                        <a href="#contact" class="btn btn-outline" id="btn-contact-hero">
+                            <i class="fa-regular fa-envelope btn-icon"></i>
+                            <span>Contact Me</span>
+                        </a>
+                    </div>
+
+                    <!-- Social Icons and Currently Learning Status -->
+                    <div class="hero-footer-status">
+                        <div class="hero-social-icons">
+                            <a href="https://www.linkedin.com/in/soumonil-sarkar-463847365" target="_blank"
+                                aria-label="LinkedIn" class="social-icon-btn"><i
+                                    class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://github.com/sarkarsoumonil2005-hub" target="_blank" aria-label="GitHub" class="social-icon-btn"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="mailto:soumonilsarkar5515@gmail.com" aria-label="Email" class="social-icon-btn"><i
+                                    class="fa-regular fa-envelope"></i></a>
+                        </div>
+                        <div class="learning-status">
+                            <span class="learning-label">Currently learning</span>
+                            <span class="learning-bubble">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orbit Image Section -->
+                <div class="hero-image-container">
+                    <div class="orbit-system">
+                        <!-- Central Circular Portrait Mask -->
+                        <div class="profile-circular-mask">
+                            <img src="soumonil_hero.jpg" alt="Soumonil Sarkar - BCA Student" class="hero-avatar">
+                        </div>
+                    </div>
+
+                    <!-- Tags Row below the circular portrait -->
+                    <div class="hero-tags-row">
+                        <div class="profile-badge">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <span>Web Development</span>
+                        </div>
+                        <div class="profile-badge">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Data Analytics</span>
+                        </div>
+                        <div class="profile-badge">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>BCA &bull; Final Yr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar Row (inside Hero) -->
+            <div class="container hero-stats-container">
+                <div class="hero-stats-grid">
+                    <div class="hero-stat-card glass-card">
+                        <span class="stat-val">7.36</span>
+                        <span class="stat-lbl">CGPA</span>
+                    </div>
+                    <div class="hero-stat-card glass-card">
+                        <span class="stat-val">2027</span>
+                        <span class="stat-lbl">GRADUATING</span>
+                    </div>
+                    <div class="hero-stat-card glass-card">
+                        <span class="stat-val">10+</span>
+                        <span class="stat-lbl">PROJECTS</span>
+                    </div>
+                    <div class="hero-stat-card glass-card">
+                        <span class="stat-val">3</span>
+                        <span class="stat-lbl">LANGUAGES</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Infinite Ticker Marquee Banner -->
+            <div class="ticker-banner">
+                <div class="ticker-track">
+                    <div class="ticker-content">
+                        <span>DATA ANALYTICS</span> <span class="bullet"></span>
+                        <span>DBMS</span> <span class="bullet"></span>
+                        <span>OOPS</span> <span class="bullet"></span>
+                        <span>IOT</span> <span class="bullet"></span>
+                        <span>NETWORKING</span> <span class="bullet"></span>
+                        <span>PYTHON</span> <span class="bullet"></span>
+                        <span>JAVA</span> <span class="bullet"></span>
+                        <span>C</span> <span class="bullet"></span>
+                        <span>JAVASCRIPT</span> <span class="bullet"></span>
+                        <span>MYSQL</span> <span class="bullet"></span>
+                        <span>REACT</span> <span class="bullet"></span>
+                        <span>MACHINE LEARNING</span> <span class="bullet"></span>
+                    </div>
+                    <!-- Duplicate to create seamless loop -->
+                    <div class="ticker-content">
+                        <span>DATA ANALYTICS</span> <span class="bullet"></span>
+                        <span>DBMS</span> <span class="bullet"></span>
+                        <span>OOPS</span> <span class="bullet"></span>
+                        <span>IOT</span> <span class="bullet"></span>
+                        <span>NETWORKING</span> <span class="bullet"></span>
+                        <span>PYTHON</span> <span class="bullet"></span>
+                        <span>JAVA</span> <span class="bullet"></span>
+                        <span>C</span> <span class="bullet"></span>
+                        <span>JAVASCRIPT</span> <span class="bullet"></span>
+                        <span>MYSQL</span> <span class="bullet"></span>
+                        <span>REACT</span> <span class="bullet"></span>
+                        <span>MACHINE LEARNING</span> <span class="bullet"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">ABOUT ME</span>
+                    <h2 class="section-title">A BCA student building for the future</h2>
+                </div>
+
+                <div class="about-container">
+                    <!-- Left Column: Bio & Highlights Card -->
+                    <div class="about-card-left glass-card">
+                        <div class="about-badge">
+                            <span class="about-badge-dot"></span>
+                            <span class="about-badge-text">WHO I AM</span>
+                        </div>
+
+                        <h3 class="about-heading-large">
+                            I'm <span class="name-red">Soumonil</span> — a BCA student at Narula Institute of
+                            Technology, JIS University.
+                        </h3>
+
+                        <p class="about-desc-para">
+                            Hi, Myself Soumonil Sarkar, a BCA final-year student and aspiring software developer. I
+                            specialize in web development, database management, and programming. I'm passionate about
+                            turning ideas into real-world applications and constantly expanding my knowledge through
+                            hands-on projects and continuous learning
+                        </p>
+
+                        <div class="about-highlights-grid">
+                            <div class="about-highlight-card">
+                                <div class="highlight-header">
+                                    <div class="highlight-circle-icon"><i class="fa-solid fa-bolt"></i></div>
+                                    <h4>Strong problem-solving</h4>
+                                </div>
+                                <p>Breaks down complex problems into elegant, testable pieces.</p>
+                            </div>
+
+                            <div class="about-highlight-card">
+                                <div class="highlight-header">
+                                    <div class="highlight-circle-icon"><i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    </div>
+                                    <h4>Quick learner</h4>
+                                </div>
+                                <p>Picks up new frameworks, tools and paradigms in days, not weeks.</p>
+                            </div>
+
+                            <div class="about-highlight-card">
+                                <div class="highlight-header">
+                                    <div class="highlight-circle-icon"><i class="fa-solid fa-code"></i></div>
+                                    <h4>Software curious</h4>
+                                </div>
+                                <p>Passionate about emerging tech – AI, ML and modern web stacks.</p>
+                            </div>
+
+                            <div class="about-highlight-card">
+                                <div class="highlight-header">
+                                    <div class="highlight-circle-icon"><i class="fa-solid fa-users"></i></div>
+                                    <h4>Team player</h4>
+                                </div>
+                                <p>Collaborates cleanly with clear communication and shared ownership.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Location & Languages Stack -->
+                    <div class="about-card-right-stack">
+                        <!-- Location Card -->
+                        <div class="about-location-card glass-card">
+                            <div class="location-circle-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="location-details">
+                                <span class="location-lbl">BASED IN</span>
+                                <p class="location-val">Khardaha, Adarshapally, North 24 Parganas, <span
+                                        class="highlight-red">West Bengal, India</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Languages Card -->
+                        <div class="about-languages-card glass-card">
+                            <div class="lang-card-header">
+                                <div class="lang-card-title">
+                                    <span class="lang-lbl">LANGUAGES</span>
+                                    <h3>I speak fluently</h3>
+                                </div>
+                                <span class="lang-count">03 / 03</span>
+                            </div>
+
+                            <div class="lang-progress-list">
+                                <div class="lang-progress-item">
+                                    <div class="lang-progress-info">
+                                        <span class="lang-progress-name">English <span class="lang-level">—
+                                                Fluent</span></span>
+                                        <span class="lang-progress-percentage">95%</span>
+                                    </div>
+                                    <div class="lang-progress-track">
+                                        <div class="lang-progress-fill" style="width: 95%;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="lang-progress-item">
+                                    <div class="lang-progress-info">
+                                        <span class="lang-progress-name">Hindi <span class="lang-level">—
+                                                Fluent</span></span>
+                                        <span class="lang-progress-percentage">95%</span>
+                                    </div>
+                                    <div class="lang-progress-track">
+                                        <div class="lang-progress-fill" style="width: 95%;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="lang-progress-item">
+                                    <div class="lang-progress-info">
+                                        <span class="lang-progress-name">Bengali <span class="lang-level">—
+                                                Native</span></span>
+                                        <span class="lang-progress-percentage">100%</span>
+                                    </div>
+                                    <div class="lang-progress-track">
+                                        <div class="lang-progress-fill" style="width: 100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education-section" id="education">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">Academic Path</span>
+                    <h2 class="section-title">My Education</h2>
+                    <p class="section-desc">My academic history outlines my continuous growth, structural learning, and
+                        achievements.</p>
+                </div>
+
+                <div class="education-grid">
+                    <!-- Box 1 -->
+                    <div class="education-card glass-card">
+                        <div class="edu-card-top">
+                            <div class="edu-card-icon">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <span class="edu-status-badge">2023 - 2027</span>
+                        </div>
+                        <div class="edu-card-body">
+                            <span class="edu-tag-pill">Pursuing</span>
+                            <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
+                            <span class="edu-inst"><i class="fa-solid fa-building-columns"></i> Narula Institute of Technology, JIS University</span>
+                            <p class="edu-details">Currently pursuing final year of computer application, focusing on software engineering, database structure, Artificial Intelligence and Machine Learning.</p>
+                        </div>
+                        <div class="edu-card-footer">
+                            <div class="score-badge"><i class="fa-solid fa-star"></i> CGPA: 7.36</div>
+                        </div>
+                    </div>
+
+                    <!-- Box 2 -->
+                    <div class="education-card glass-card">
+                        <div class="edu-card-top">
+                            <div class="edu-card-icon">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <span class="edu-status-badge">2021 - 2023</span>
+                        </div>
+                        <div class="edu-card-body">
+                            <span class="edu-tag-pill">Completed</span>
+                            <h3 class="edu-degree">Higher Secondary (10+2) — Commerce</h3>
+                            <span class="edu-inst"><i class="fa-solid fa-building-columns"></i> Barrackpore Government High School</span>
+                            <p class="edu-details">Completed higher secondary education in commerce stream with 71%, building core principles in logical thinking, mathematics, and computers.</p>
+                        </div>
+                        <div class="edu-card-footer">
+                            <div class="score-badge"><i class="fa-solid fa-award"></i> Percentage: 71%</div>
+                        </div>
+                    </div>
+
+                    <!-- Box 3 -->
+                    <div class="education-card glass-card">
+                        <div class="edu-card-top">
+                            <div class="edu-card-icon">
+                                <i class="fa-solid fa-book-open-reader"></i>
+                            </div>
+                            <span class="edu-status-badge">2015 - 2021</span>
+                        </div>
+                        <div class="edu-card-body">
+                            <span class="edu-tag-pill">Completed</span>
+                            <h3 class="edu-degree">Secondary (10th)</h3>
+                            <span class="edu-inst"><i class="fa-solid fa-building-columns"></i> Kalyan Nagar Vidhyapith</span>
+                            <p class="edu-details">Acquired secondary school certificate with high marks and active participation in school co-curricular programming.</p>
+                        </div>
+                        <div class="edu-card-footer">
+                            <div class="score-badge"><i class="fa-solid fa-award"></i> Percentage: 79%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section" id="skills">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">Abilities</span>
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-desc">A detailed overview of my core competencies, programming skills, database
+                        systems, and technical concepts.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Programming -->
+                    <div class="skill-category glass-card">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <h3>Programming</h3>
+                        </div>
+                        <div class="skill-progress-list">
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">C</span>
+                                    <span class="skill-percentage">100%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">Java</span>
+                                    <span class="skill-percentage">70%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Tech -->
+                    <div class="skill-category glass-card">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-globe"></i>
+                            <h3>Web Technologies</h3>
+                        </div>
+                        <div class="skill-progress-list">
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">HTML</span>
+                                    <span class="skill-percentage">100%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">CSS</span>
+                                    <span class="skill-percentage">95%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">Bootstrap</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Databases -->
+                    <div class="skill-category glass-card">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-database"></i>
+                            <h3>Database System</h3>
+                        </div>
+                        <div class="skill-progress-list">
+
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">MySQL</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">Power BI</span>
+                                    <span class="skill-percentage">95%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                                                    <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">Advanced Excel</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+
+                    <!-- Technical Concepts -->
+                    <div class="skill-category glass-card">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <h3>Technical Concept</h3>
+                        </div>
+                        <div class="skill-progress-list">
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">Computer Network</span>
+                                    <span class="skill-percentage">95%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">IOT</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">DBMS</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-progress-info">
+                                    <span class="skill-name">OOPS</span>
+                                    <span class="skill-percentage">70%</span>
+                                </div>
+                                <div class="skill-progress-track">
+                                    <div class="skill-progress-fill" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Platform -->
+                    <div class="skill-category glass-card">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-toolbox"></i>
+                            <h3>Tools & Platform</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">VS code</span>
+                            <span class="skill-tag">Antigravity IDE</span>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="skill-category glass-card">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-user-check"></i>
+                            <h3>Soft Skills</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Problem solving</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Team work</span>
+                            <span class="skill-tag">Time management</span>
+                            <span class="skill-tag">Quick Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">What I Do</span>
+                    <h2 class="section-title">My Services</h2>
+                    <p class="section-desc">IT-focused services applying my computer application background to deliver
+                        structure, analysis, and interface design.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card glass-card">
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>Creating clean, user-friendly, and visually attractive digital experiences optimized for
+                            accessibility.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card glass-card">
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3>Database Design</h3>
+                        <p>Designing structured databases with efficient schemas, indices, and data management
+                            workflows.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card glass-card">
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
+                        <h3>Data Analytics</h3>
+                        <p>Analyzing datasets to build key visual dashboards and meaningful reports that uncover
+                            actionable insights.</p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card glass-card">
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-ethernet"></i>
+                        </div>
+                        <h3>Networking</h3>
+                        <p>Understanding and implementing fundamental computer network configurations and protocols.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Portfolio Section -->
+        <section class="projects-section" id="projects">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">My Work</span>
+                    <h2 class="section-title">Projects Portfolio</h2>
+                    <p class="section-desc">Explore practical applications of software engineering, database management,
+                        and machine learning.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card glass-card">
+                        <div class="project-content">
+                            <span class="proj-badge">Machine Learning</span>
+                            <h3>Loan Approval Prediction</h3>
+                            <p class="proj-desc">A machine learning project that predicts whether a loan application
+                                will be approved based on applicant features including income, education, employment
+                                status, credit history, loan amount, and marital status.</p>
+
+                            <h4 class="proj-sub-title">Key Features & Innovations:</h4>
+                            <ul class="proj-features">
+                                <li><i class="fa-solid fa-check"></i> High accuracy Random Forest prediction pipeline
+                                </li>
+                                <li><i class="fa-solid fa-check"></i> Interactive multi-step credit assessment form</li>
+                                <li><i class="fa-solid fa-check"></i> Real-time feature importance visualization</li>
+                                <li><i class="fa-solid fa-check"></i> Automated missing value & outlier handling</li>
+                                <li><i class="fa-solid fa-check"></i> REST API endpoint for batch predictions</li>
+                            </ul>
+
+                            <div class="proj-tech-stack">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>Scikit-Learn</span>
+                                <span>Machine Learning</span>
+                                <span>Logistic Regression</span>
+                                <span>Decision Tree</span>
+                                <span>Random Forest</span>
+                                <span>SVM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card glass-card">
+                        <div class="project-content">
+                            <span class="proj-badge">Web Application</span>
+                            <h3>To-Do List Web App</h3>
+                            <p class="proj-desc">A responsive and user-friendly task-management web application designed to support task creation, editing, deletion, and completion tracking for organizing daily tasks and improving productivity.</p>
+
+                            <h4 class="proj-sub-title">Key Features:</h4>
+                            <ul class="proj-features">
+                                <li><i class="fa-solid fa-check"></i> Interactive task creation, editing & removal</li>
+                                <li><i class="fa-solid fa-check"></i> Real-time completion status and task filtering</li>
+                                <li><i class="fa-solid fa-check"></i> Clean, responsive, and intuitive user interface</li>
+                                <li><i class="fa-solid fa-check"></i> Fast and lightweight DOM manipulation</li>
+                            </ul>
+
+                            <div class="proj-tech-stack">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card glass-card">
+                        <div class="project-content">
+                            <span class="proj-badge">Web Development</span>
+                            <h3>My Portfolio</h3>
+                            <p class="proj-desc">My Portfolio is a responsive personal portfolio website developed to
+                                showcase my skills, education, projects, certifications, and contact information. It
+                                highlights my journey as a BCA final-year student and aspiring software developer. The
+                                website is built using modern web technologies such as HTML, CSS, JavaScript, and
+                                Bootstrap, featuring a clean design, smooth navigation, and an interactive user
+                                experience. Its purpose is to present my technical abilities and professional profile to
+                                recruiters, employers, and collaborators.</p>
+
+                            <h4 class="proj-sub-title">Key Features:</h4>
+                            <ul class="proj-features">
+                                <li><i class="fa-solid fa-check"></i> Floating glassmorphic navigation system</li>
+                                <li><i class="fa-solid fa-check"></i> 3d canvas orbiting tech sphere component</li>
+                                <li><i class="fa-solid fa-check"></i> 100% type safe modular react architecture</li>
+                                <li><i class="fa-solid fa-check"></i> Mobile - responsive full page layout sections</li>
+                            </ul>
+
+                            <div class="proj-tech-stack">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>Bootstrap</span>
+                                <span>React</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience-section" id="experience">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">Career Path</span>
+                    <h2 class="section-title">Work Experience</h2>
+                    <p class="section-desc">Practical internships and industrial training programs where I applied
+                        academic theories to real-world datasets.</p>
+                </div>
+
+                <div class="experience-container">
+                    <!-- Exp Item 1 -->
+                    <div class="experience-card glass-card">
+                        <div class="exp-header">
+                            <div class="exp-role-info">
+                                <span class="exp-badge">Top Honor</span>
+                                <h3>Machine Learning Internship</h3>
+                                <span class="exp-company"><i class="fa-solid fa-building"></i> Ardent Computech Pvt.
+                                    Ltd.</span>
+                                <span class="exp-domain"><i class="fa-solid fa-laptop-code"></i> Data Science,
+                                    Artificial Intelligence, and Machine Learning using Python</span>
+                            </div>
+                            <div class="exp-meta">
+                                <span class="exp-date"><i class="fa-regular fa-calendar"></i> June 2025 - Aug
+                                    2025</span>
+                                <span class="exp-loc"><i class="fa-solid fa-location-dot"></i> Kolkata, WB</span>
+                            </div>
+                        </div>
+
+                        <p class="exp-summary">I gained hands-on experience in building predictive models, data
+                            preprocessing, and understanding core ML/AI architectures.</p>
+
+                        <h4 class="exp-sub-title">Key Responsibilities & Learning:</h4>
+                        <ul class="exp-achievements">
+                            <li><i class="fa-solid fa-check"></i> Explored Linear Regression, Logistic Regression,
+                                Random Forest, Support Vector Machines (SVM), and Decision Trees.</li>
+                            <li><i class="fa-solid fa-check"></i> Applied K-Means clustering and evaluated models using
+                                metrics like accuracy, precision, recall, and F1-score.</li>
+                            <li><i class="fa-solid fa-check"></i> Learned deployment strategies and ethical
+                                considerations in real-world AI applications.</li>
+                        </ul>
+
+                        <div class="exp-tech-stack">
+                            <span>Python</span>
+                            <span>NumPy</span>
+                            <span>Scikit-learn</span>
+                            <span>Pandas</span>
+                            <span>Matplotlib</span>
+                            <span>Seaborn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="certifications-section" id="certifications">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">Credentials</span>
+                    <h2 class="section-title">Certificates & Specialization</h2>
+                    <p class="section-desc">Verified industrial certifications and training programs matching industry
+                        standards.</p>
+                </div>
+
+                <div class="certifications-timeline">
+                    <!-- Cert Item 1 -->
+                    <div class="cert-timeline-item">
+                        <div class="cert-timeline-dot"></div>
+                        <div class="cert-timeline-date">July 23, 2025</div>
+                        <div class="cert-timeline-content glass-card">
+                            <div class="cert-timeline-header">
+                                <i class="fa-solid fa-certificate cert-timeline-icon"></i>
+                                <div>
+                                    <span class="cert-status-badge">Industrial Training</span>
+                                    <h3>Data Science, Artificial Intelligence, and Machine Learning using Python</h3>
+                                    <span class="cert-inst">Ardent Computech Pvt. Ltd. <span
+                                            class="cert-meta-sep">&bull;</span> NASSCOM Partnered</span>
+                                </div>
+                            </div>
+                            <p class="cert-timeline-desc">Successfully completed comprehensive industrial training,
+                                implementing a real-world predictive project: <strong>Loan Approval Prediction</strong>.
+                            </p>
+                            <div class="cert-timeline-footer">
+                                <div class="cert-footer-badges">
+                                    <div class="score-badge">ID: ARDENT/159777</div>
+                                    <div class="score-badge">ISO 9001:2015</div>
+                                </div>
+                                <div class="cert-footer-actions">
+                                    <button class="btn btn-red btn-sm"
+                                        onclick="openCertModal('ardent_certificate.pdf')">
+                                        <i class="fa-solid fa-eye"></i> Preview
+                                    </button>
+                                    <a href="ardent_certificate.pdf" target="_blank" class="btn btn-outline btn-sm">
+                                        <i class="fa-solid fa-up-right-from-square"></i> Open
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cert Item 2 -->
+                    <div class="cert-timeline-item">
+                        <div class="cert-timeline-dot"></div>
+                        <div class="cert-timeline-date">March 13, 2026</div>
+                        <div class="cert-timeline-content glass-card">
+                            <div class="cert-timeline-header">
+                                <i class="fa-solid fa-award cert-timeline-icon"></i>
+                                <div>
+                                    <span class="cert-status-badge">Invited Talk</span>
+                                    <h3>Blockchain Demystified: From Hype to Enterprise Reality</h3>
+                                    <span class="cert-inst">Narula Institute of Technology <span
+                                            class="cert-meta-sep">&bull;</span> Department of CA</span>
+                                </div>
+                            </div>
+                            <p class="cert-timeline-desc">Attended the specialized expert seminar conducted by IBM
+                                industry experts, exploring blockchain technology nodes and corporate implementations.
+                            </p>
+                            <div class="cert-timeline-footer">
+                                <div class="cert-footer-badges">
+                                    <div class="score-badge">IBM Expert Talk</div>
+                                    <div class="score-badge">Participation</div>
+                                </div>
+                                <div class="cert-footer-actions">
+                                    <button class="btn btn-red btn-sm"
+                                        onclick="openCertModal('blockchain_certificate.pdf')">
+                                        <i class="fa-solid fa-eye"></i> Preview
+                                    </button>
+                                    <a href="blockchain_certificate.pdf" target="_blank" class="btn btn-outline btn-sm">
+                                        <i class="fa-solid fa-up-right-from-square"></i> Open
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cert Item 3 -->
+                    <div class="cert-timeline-item">
+                        <div class="cert-timeline-dot"></div>
+                        <div class="cert-timeline-date">April 28, 2025</div>
+                        <div class="cert-timeline-content glass-card">
+                            <div class="cert-timeline-header">
+                                <i class="fa-solid fa-laptop-code cert-timeline-icon"></i>
+                                <div>
+                                    <span class="cert-status-badge">Seminar</span>
+                                    <h3>Advanced Web Development with AI Integration</h3>
+                                    <span class="cert-inst">Narula Institute of Technology <span
+                                            class="cert-meta-sep">&bull;</span> Euphoria Genx</span>
+                                </div>
+                            </div>
+                            <p class="cert-timeline-desc">Participated in the training workshop focusing on the
+                                intersection of modern front-end web technologies and AI workflows.</p>
+                            <div class="cert-timeline-footer">
+                                <div class="cert-footer-badges">
+                                    <div class="score-badge">Euphoria Genx</div>
+                                    <div class="score-badge">AI Integration</div>
+                                </div>
+                                <div class="cert-footer-actions">
+                                    <button class="btn btn-red btn-sm"
+                                        onclick="openCertModal('webdev_ai_certificate.pdf')">
+                                        <i class="fa-solid fa-eye"></i> Preview
+                                    </button>
+                                    <a href="webdev_ai_certificate.pdf" target="_blank" class="btn btn-outline btn-sm">
+                                        <i class="fa-solid fa-up-right-from-square"></i> Open
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Document / Certificate Preview Modal -->
+        <div class="cert-modal" id="cert-modal">
+            <div class="cert-modal-content glass-card">
+                <div class="cert-modal-header">
+                    <h3 id="cert-modal-title">Document Preview</h3>
+                    <div class="cert-modal-actions">
+                        <a id="cert-modal-open-link" href="#" target="_blank" class="btn btn-outline btn-sm" title="Open / Download full PDF">
+                            <i class="fa-solid fa-up-right-from-square"></i> Open Full
+                        </a>
+                        <button class="cert-modal-close-btn" onclick="closeCertModal()" aria-label="Close modal">&times;</button>
+                    </div>
+                </div>
+                <div class="cert-modal-body">
+                    <iframe id="cert-iframe" src="" width="100%" height="100%" style="border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Professional Value Section -->
+        <section class="value-section" id="value">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">Why Hire Me?</span>
+                    <h2 class="section-title">Professional Values</h2>
+                    <p class="section-desc">Key strength domains highlighting the analytical and architectural values I
+                        bring to development teams.</p>
+                </div>
+
+                <div class="value-grid">
+                    <!-- Value 1 -->
+                    <div class="value-card glass-card">
+                        <div class="value-icon"><i class="fa-solid fa-code"></i></div>
+                        <h3>Web Technology</h3>
+                        <p>Comfortable with building semantic structures using HTML, writing responsive styles with CSS,
+                            and implementing interactive layers with JavaScript.</p>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div class="value-card glass-card">
+                        <div class="value-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Web Development</h3>
+                        <p>Well-versed in Python and Java programming, backed by DBMS concepts, OOP design structures,
+                            and analytical problem-solving pipelines.</p>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div class="value-card glass-card">
+                        <div class="value-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Database & Analytics</h3>
+                        <p>Proficient in MySQL/SQL database structures, dashboard generation in Power BI, and analytical
+                            spreadsheet operations in Excel.</p>
+                    </div>
+
+                    <!-- Value 4 -->
+                    <div class="value-card glass-card">
+                        <div class="value-icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
+                        <h3>Productivity & Optimization</h3>
+                        <p>Effective usage of PowerPoint and Excel for data visualization, performance optimization
+                            algorithms, and clear team communication.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container contact-container">
+                <div class="contact-info">
+                    <span class="section-subtitle">Get In Touch</span>
+                    <h2 class="section-title">Let's discuss professional opportunities</h2>
+                    <p class="contact-text-intro">I'm currently seeking entry-level software development, database, or
+                        analyst roles where I can apply my BCA learning and build professional experience.</p>
+
+                    <div class="contact-cards">
+                        <!-- Phone -->
+                        <div class="contact-card glass-card">
+                            <div class="contact-card-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-card-details">
+                                <span class="contact-label">Phone</span>
+                                <span class="contact-val">+91 9433917608</span>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="contact-card glass-card">
+                            <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-card-details">
+                                <span class="contact-label">Email</span>
+                                <span class="contact-val">soumonilsarkar5515@gmail.com</span>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="contact-card glass-card">
+                            <div class="contact-card-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                            <div class="contact-card-details">
+                                <span class="contact-label">LinkedIn</span>
+                                <span class="contact-val">linkedin.com/in/soumonil-sarkar-463847365</span>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="contact-card glass-card">
+                            <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-card-details">
+                                <span class="contact-label">Location</span>
+                                <span class="contact-val">Khardaha, West Bengal, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper glass-card">
+                    <h3>Send a Message</h3>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="form-name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="form-email" required placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="form-subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="form-message" required rows="4" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#" class="logo">
+                    <img src="logo.jpg" alt="SS Logo" class="logo-img">
+                    <span class="logo-text">Soumonil Sarkar</span>
+                </a>
+                <p>&copy; 2026 Soumonil Sarkar. All Rights Reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/soumonil-sarkar-463847365" target="_blank"
+                        aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/sarkarsoumonil2005-hub" target="_blank" aria-label="GitHub"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="mailto:soumonilsarkar5515@gmail.com" aria-label="Email"><i
+                            class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Confirmation Dialog Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content glass-card">
+            <span class="modal-close" id="modal-close">&times;</span>
+            <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h3>Thank You!</h3>
+            <p>Your message has been sent successfully. Soumonil will get back to you shortly.</p>
+            <button class="btn btn-primary" id="modal-btn-close">Close</button>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="index.js"></script>
+</body>
+
+</html>
