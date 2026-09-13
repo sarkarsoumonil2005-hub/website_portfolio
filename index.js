@@ -321,28 +321,87 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 9. Preloader Logic
+    // 9. 3D Holographic Preloader Logic
     const preloader = document.getElementById('preloader');
+    const preloaderCard = document.getElementById('preloader-card');
     const preloaderProgress = document.getElementById('preloader-progress');
+    const preloaderCounter = document.getElementById('preloader-counter');
+    const statusLabel = document.querySelector('.preloader-status-row .status-label');
     
     if (preloader && preloaderProgress) {
-        document.body.style.overflow = 'hidden'; // Lock scrolling
-        
-        // Start progress bar animation
-        setTimeout(() => {
-            preloaderProgress.style.width = '100%';
-        }, 100);
+        document.body.style.overflow = 'hidden'; // Lock scrolling during intro
+        let isPreloaderActive = true;
 
-        // Slide up preloader after 2 seconds
-        setTimeout(() => {
-            preloader.classList.add('fade-out');
-            document.body.style.overflow = ''; // Unlock scrolling
+        // Interactive 3D Tilt on Mouse Move
+        const handle3DTilt = (e) => {
+            if (!isPreloaderActive || !preloaderCard) return;
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const mouseX = (e.clientX - width / 2) / (width / 2);
+            const mouseY = (e.clientY - height / 2) / (height / 2);
+
+            const rotateX = -mouseY * 14; // Max 14 deg tilt
+            const rotateY = mouseX * 14;
+
+            preloaderCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(15px)`;
+        };
+
+        const reset3DTilt = () => {
+            if (!preloaderCard) return;
+            preloaderCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        };
+
+        window.addEventListener('mousemove', handle3DTilt);
+        window.addEventListener('mouseleave', reset3DTilt);
+
+        // Smooth Counter & Progress Simulation
+        let currentProgress = 0;
+        const totalDuration = 2200; // 2.2 seconds total animation
+        const intervalTime = 30;
+        const stepIncrement = 100 / (totalDuration / intervalTime);
+
+        const progressTimer = setInterval(() => {
+            currentProgress += stepIncrement * (Math.random() * 0.8 + 0.6); // organic easing
             
-            // Cleanup preloader from DOM after slide transition is finished
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 1000);
-        }, 2000);
+            if (currentProgress >= 100) {
+                currentProgress = 100;
+                clearInterval(progressTimer);
+
+                if (preloaderCounter) preloaderCounter.textContent = '100%';
+                if (preloaderProgress) preloaderProgress.style.width = '100%';
+                if (statusLabel) {
+                    statusLabel.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #34d399;"></i> System Ready • Welcome';
+                }
+
+                // Seamless 3D Exit transition
+                setTimeout(() => {
+                    isPreloaderActive = false;
+                    window.removeEventListener('mousemove', handle3DTilt);
+                    window.removeEventListener('mouseleave', reset3DTilt);
+
+                    preloader.classList.add('fade-out');
+                    document.body.style.overflow = ''; // Unlock scrolling
+
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 900);
+                }, 400);
+            } else {
+                const rounded = Math.floor(currentProgress);
+                if (preloaderCounter) preloaderCounter.textContent = rounded + '%';
+                if (preloaderProgress) preloaderProgress.style.width = rounded + '%';
+
+                if (statusLabel) {
+                    if (rounded < 35) {
+                        statusLabel.innerHTML = '<i class="fa-solid fa-microchip"></i> Initializing 3D Core...';
+                    } else if (rounded < 70) {
+                        statusLabel.innerHTML = '<i class="fa-solid fa-network-wired"></i> Loading Neural Assets...';
+                    } else {
+                        statusLabel.innerHTML = '<i class="fa-solid fa-bolt"></i> Finalizing Workspace...';
+                    }
+                }
+            }
+        }, intervalTime);
     }
 
 

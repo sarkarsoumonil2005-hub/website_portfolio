@@ -27,13 +27,52 @@
 </head>
 
 <body>
-    <!-- Preloader Screen -->
+    <!-- 3D Holographic Preloader / Welcome Screen -->
     <div class="preloader" id="preloader">
-        <div class="preloader-content">
-            <img src="logo.png" alt="Logo" class="preloader-logo">
-            <h1 class="preloader-title">Welcome</h1>
-            <div class="preloader-bar">
-                <div class="preloader-progress" id="preloader-progress"></div>
+        <div class="preloader-bg-glow"></div>
+        <div class="preloader-grid"></div>
+
+        <div class="preloader-3d-scene" id="preloader-scene">
+            <div class="preloader-3d-card" id="preloader-card">
+                <!-- 3D Holographic Stage -->
+                <div class="preloader-holo-stage">
+                    <div class="holo-ring holo-ring-1"></div>
+                    <div class="holo-ring holo-ring-2"></div>
+                    <div class="holo-ring holo-ring-3"></div>
+                    <div class="holo-energy-pulse"></div>
+                    <div class="holo-particles">
+                        <span class="p-dot dot-1"></span>
+                        <span class="p-dot dot-2"></span>
+                        <span class="p-dot dot-3"></span>
+                        <span class="p-dot dot-4"></span>
+                    </div>
+                    <div class="holo-logo-disc">
+                        <img src="logo.png" alt="Soumonil Sarkar Logo" class="preloader-logo-3d">
+                        <div class="holo-logo-glow"></div>
+                    </div>
+                </div>
+
+                <!-- 3D Typography & Identity -->
+                <div class="preloader-text-wrap">
+                    <div class="preloader-badge">
+                        <span class="badge-dot"></span>
+                        <span>SYSTEM INITIALIZING • 2026</span>
+                    </div>
+                    <h1 class="preloader-title-3d">Soumonil Sarkar</h1>
+                    <p class="preloader-subtitle-3d">Web Developer & AI / ML Enthusiast</p>
+                </div>
+
+                <!-- 3D Progress Bar & Live Counter -->
+                <div class="preloader-progress-wrap">
+                    <div class="preloader-status-row">
+                        <span class="status-label"><i class="fa-solid fa-bolt"></i> Preparing Workspace...</span>
+                        <span class="status-counter" id="preloader-counter">0%</span>
+                    </div>
+                    <div class="preloader-bar-3d">
+                        <div class="preloader-progress-3d" id="preloader-progress"></div>
+                        <div class="preloader-light-scan"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

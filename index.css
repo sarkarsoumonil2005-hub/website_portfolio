@@ -2393,82 +2393,489 @@ section {
     }
 }
 
-/* Preloader Styling */
+/* ==========================================================================
+   3D Holographic Preloader / Welcome Screen
+   ========================================================================== */
 .preloader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #040712;
+    background-color: #030611;
     z-index: 100000;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
+    overflow: hidden;
+    perspective: 1200px;
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.85s ease;
 }
 
 .preloader.fade-out {
-    transform: translateY(-100%);
+    opacity: 0;
+    transform: scale(1.08) translateY(-60px);
+    filter: blur(14px);
+    pointer-events: none;
 }
 
-.preloader-content {
+/* Ambient 3D Depth Glow */
+.preloader-bg-glow {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle at 50% 38%, rgba(255, 75, 92, 0.22) 0%, transparent 55%),
+                radial-gradient(circle at 40% 65%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 65% 65%, rgba(168, 85, 247, 0.12) 0%, transparent 50%);
+    pointer-events: none;
+    animation: bgGlowBreath 6s ease-in-out infinite alternate;
+}
+
+/* 3D Cyber Perspective Grid */
+.preloader-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 45px 45px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    pointer-events: none;
+}
+
+/* 3D Scene Wrapper */
+.preloader-3d-scene {
+    position: relative;
+    z-index: 2;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 520px;
+    padding: 24px;
+}
+
+/* Floating 3D Glassmorphism Pod Card */
+.preloader-3d-card {
+    width: 100%;
+    max-width: 460px;
+    padding: 38px 32px 34px;
+    background: rgba(10, 14, 26, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 28px;
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75),
+                0 0 50px rgba(255, 75, 92, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transform-style: preserve-3d;
+    transition: transform 0.18s ease-out, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 24px;
     text-align: center;
-}
-
-.preloader-logo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 75, 92, 0.3);
-    box-shadow: 0 0 30px rgba(255, 75, 92, 0.15);
-    object-fit: cover;
-    animation: pulseLogo 2s infinite ease-in-out;
-}
-
-.preloader-title {
-    font-family: var(--font-primary);
-    color: var(--text-primary);
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin: 0;
-    background: linear-gradient(135deg, #ffffff 30%, #ff4b5c 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.preloader-bar {
-    width: 200px;
-    height: 3px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 2px;
-    overflow: hidden;
     position: relative;
 }
 
-.preloader-progress {
+/* 3D Holographic Stage */
+.preloader-holo-stage {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    margin-top: 6px;
+}
+
+/* 3D Rotating Rings */
+.holo-ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform-style: preserve-3d;
+}
+
+.holo-ring-1 {
+    width: 196px;
+    height: 196px;
+    border: 2px dashed rgba(255, 75, 92, 0.75);
+    box-shadow: 0 0 20px rgba(255, 75, 92, 0.4);
+    animation: holoSpinRingX 7s linear infinite;
+}
+
+.holo-ring-2 {
+    width: 174px;
+    height: 174px;
+    border: 2px solid rgba(56, 189, 248, 0.65);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    animation: holoSpinRingY 5.5s linear infinite reverse;
+}
+
+.holo-ring-3 {
+    width: 212px;
+    height: 212px;
+    border: 1px dotted rgba(255, 255, 255, 0.35);
+    animation: holoSpinRingZ 11s linear infinite;
+}
+
+.holo-energy-pulse {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 75, 92, 0.3) 0%, rgba(56, 189, 248, 0.1) 50%, transparent 75%);
+    animation: holoEnergyPulse 2.4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Elevated 3D Logo Disc */
+.holo-logo-disc {
+    position: relative;
+    width: 122px;
+    height: 122px;
+    border-radius: 50%;
+    transform: translateZ(42px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0d1222;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7),
+                0 0 35px rgba(255, 75, 92, 0.45);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.preloader-logo-3d {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.holo-logo-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 18px rgba(255, 75, 92, 0.5);
+    pointer-events: none;
+}
+
+/* Orbiting Particles */
+.holo-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    animation: holoParticlesOrbit 6s linear infinite;
+}
+
+.p-dot {
+    position: absolute;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+.dot-1 {
+    top: 10px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: #ff4b5c;
+    color: #ff4b5c;
+}
+
+.dot-2 {
+    bottom: 15px;
+    right: 35px;
+    width: 5px;
+    height: 5px;
+    background: #38bdf8;
+    color: #38bdf8;
+}
+
+.dot-3 {
+    top: 50%;
+    left: 8px;
+    width: 5px;
+    height: 5px;
+    background: #a855f7;
+    color: #a855f7;
+}
+
+.dot-4 {
+    top: 35px;
+    right: 20px;
+    width: 4px;
+    height: 4px;
+    background: #34d399;
+    color: #34d399;
+}
+
+/* Typography & Identity */
+.preloader-text-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transform: translateZ(28px);
+}
+
+.preloader-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    background: rgba(255, 75, 92, 0.12);
+    border: 1px solid rgba(255, 75, 92, 0.35);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    color: #ff6b7b;
+    text-transform: uppercase;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff4b5c;
+    box-shadow: 0 0 10px #ff4b5c;
+    animation: blinkBadgeDot 1.2s ease-in-out infinite;
+}
+
+.preloader-title-3d {
+    font-family: var(--font-primary);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 4px 0 0;
+    background: linear-gradient(135deg, #ffffff 35%, #ff4b5c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(255, 75, 92, 0.25);
+}
+
+.preloader-subtitle-3d {
+    font-family: var(--font-secondary);
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* 3D Progress Bar & Live Counter */
+.preloader-progress-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transform: translateZ(22px);
+    margin-top: 4px;
+}
+
+.preloader-status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.status-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.status-label i {
+    color: #38bdf8;
+    animation: iconPulse 1.5s infinite;
+}
+
+.status-counter {
+    font-family: var(--font-primary);
+    color: #ff6b7b;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(255, 75, 92, 0.5);
+}
+
+.preloader-bar-3d {
+    width: 100%;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.preloader-progress-3d {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 0%;
-    background-color: var(--accent-color);
-    box-shadow: 0 0 10px var(--accent-color);
-    transition: width 2s linear;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #38bdf8 0%, #ff4b5c 100%);
+    box-shadow: 0 0 16px rgba(255, 75, 92, 0.9), 0 0 8px #38bdf8;
+    transition: width 0.08s linear;
 }
 
-@keyframes pulseLogo {
+.preloader-light-scan {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 35%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+    animation: scanLightBar 1.8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Keyframes for 3D Holographic Preloader
+   ========================================================================== */
+@keyframes holoSpinRingX {
+    0% {
+        transform: rotateX(68deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(68deg) rotateZ(360deg);
+    }
+}
+
+@keyframes holoSpinRingY {
+    0% {
+        transform: rotateY(68deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateY(68deg) rotateZ(360deg);
+    }
+}
+
+@keyframes holoSpinRingZ {
+    0% {
+        transform: rotateX(45deg) rotateY(30deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(45deg) rotateY(30deg) rotateZ(360deg);
+    }
+}
+
+@keyframes holoEnergyPulse {
     0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 30px rgba(255, 75, 92, 0.15);
+        transform: scale(0.95);
+        opacity: 0.55;
     }
     50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 45px rgba(255, 75, 92, 0.3);
+        transform: scale(1.18);
+        opacity: 1;
+        filter: drop-shadow(0 0 25px rgba(255, 75, 92, 0.75));
+    }
+}
+
+@keyframes holoParticlesOrbit {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes bgGlowBreath {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.75;
+    }
+    100% {
+        transform: scale(1.12) rotate(6deg);
+        opacity: 1;
+    }
+}
+
+@keyframes blinkBadgeDot {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.25;
+        transform: scale(0.75);
+    }
+}
+
+@keyframes scanLightBar {
+    0% {
+        left: -35%;
+    }
+    100% {
+        left: 135%;
+    }
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+        color: #ff4b5c;
+    }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 576px) {
+    .preloader-3d-card {
+        padding: 30px 20px 26px;
+        border-radius: 22px;
+        gap: 20px;
+    }
+
+    .preloader-holo-stage {
+        width: 165px;
+        height: 165px;
+    }
+
+    .holo-ring-1 {
+        width: 160px;
+        height: 160px;
+    }
+
+    .holo-ring-2 {
+        width: 142px;
+        height: 142px;
+    }
+
+    .holo-ring-3 {
+        width: 175px;
+        height: 175px;
+    }
+
+    .holo-logo-disc {
+        width: 100px;
+        height: 100px;
+        transform: translateZ(30px);
+    }
+
+    .preloader-title-3d {
+        font-size: 22px;
+    }
+
+    .preloader-subtitle-3d {
+        font-size: 12px;
     }
 }
