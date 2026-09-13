@@ -326,7 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloaderCard = document.getElementById('preloader-card');
     const preloaderProgress = document.getElementById('preloader-progress');
     const preloaderCounter = document.getElementById('preloader-counter');
-    const statusLabel = document.querySelector('.preloader-status-row .status-label');
     
     if (preloader && preloaderProgress) {
         document.body.style.overflow = 'hidden'; // Lock scrolling during intro
@@ -369,9 +368,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (preloaderCounter) preloaderCounter.textContent = '100%';
                 if (preloaderProgress) preloaderProgress.style.width = '100%';
-                if (statusLabel) {
-                    statusLabel.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #34d399;"></i> System Ready • Welcome';
-                }
 
                 // Seamless 3D Exit transition
                 setTimeout(() => {
@@ -390,16 +386,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rounded = Math.floor(currentProgress);
                 if (preloaderCounter) preloaderCounter.textContent = rounded + '%';
                 if (preloaderProgress) preloaderProgress.style.width = rounded + '%';
-
-                if (statusLabel) {
-                    if (rounded < 35) {
-                        statusLabel.innerHTML = '<i class="fa-solid fa-microchip"></i> Initializing 3D Core...';
-                    } else if (rounded < 70) {
-                        statusLabel.innerHTML = '<i class="fa-solid fa-network-wired"></i> Loading Neural Assets...';
-                    } else {
-                        statusLabel.innerHTML = '<i class="fa-solid fa-bolt"></i> Finalizing Workspace...';
-                    }
-                }
             }
         }, intervalTime);
     }
