@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || targetId === '') return;
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
@@ -321,46 +321,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 9. 3D Holographic Preloader Logic
+    // 9. Simple Preloader Logic
     const preloader = document.getElementById('preloader');
-    const preloaderCard = document.getElementById('preloader-card');
     const preloaderProgress = document.getElementById('preloader-progress');
     const preloaderCounter = document.getElementById('preloader-counter');
     
     if (preloader && preloaderProgress) {
-        document.body.style.overflow = 'hidden'; // Lock scrolling during intro
-        let isPreloaderActive = true;
+        document.body.style.overflow = 'hidden'; // Lock scrolling during initial load
 
-        // Interactive 3D Tilt on Mouse Move
-        const handle3DTilt = (e) => {
-            if (!isPreloaderActive || !preloaderCard) return;
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            const mouseX = (e.clientX - width / 2) / (width / 2);
-            const mouseY = (e.clientY - height / 2) / (height / 2);
-
-            const rotateX = -mouseY * 14; // Max 14 deg tilt
-            const rotateY = mouseX * 14;
-
-            preloaderCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(15px)`;
-        };
-
-        const reset3DTilt = () => {
-            if (!preloaderCard) return;
-            preloaderCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-        };
-
-        window.addEventListener('mousemove', handle3DTilt);
-        window.addEventListener('mouseleave', reset3DTilt);
-
-        // Smooth Counter & Progress Simulation
         let currentProgress = 0;
-        const totalDuration = 2200; // 2.2 seconds total animation
-        const intervalTime = 30;
+        const totalDuration = 900; // Snappy ~0.9s loading
+        const intervalTime = 25;
         const stepIncrement = 100 / (totalDuration / intervalTime);
 
         const progressTimer = setInterval(() => {
-            currentProgress += stepIncrement * (Math.random() * 0.8 + 0.6); // organic easing
+            currentProgress += stepIncrement * (Math.random() * 0.6 + 0.8);
             
             if (currentProgress >= 100) {
                 currentProgress = 100;
@@ -369,19 +344,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (preloaderCounter) preloaderCounter.textContent = '100%';
                 if (preloaderProgress) preloaderProgress.style.width = '100%';
 
-                // Seamless 3D Exit transition
                 setTimeout(() => {
-                    isPreloaderActive = false;
-                    window.removeEventListener('mousemove', handle3DTilt);
-                    window.removeEventListener('mouseleave', reset3DTilt);
-
-                    preloader.classList.add('fade-out');
+                    preloader.classList.add('slide-up');
                     document.body.style.overflow = ''; // Unlock scrolling
 
                     setTimeout(() => {
                         preloader.style.display = 'none';
-                    }, 900);
-                }, 400);
+                    }, 800);
+                }, 200);
             } else {
                 const rounded = Math.floor(currentProgress);
                 if (preloaderCounter) preloaderCounter.textContent = rounded + '%';
@@ -389,7 +359,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, intervalTime);
     }
-
-
 
 });

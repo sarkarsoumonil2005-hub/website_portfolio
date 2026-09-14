@@ -27,47 +27,21 @@
 </head>
 
 <body>
-    <!-- 3D Holographic Preloader / Welcome Screen -->
+    <!-- Simple & Elegant Preloader -->
     <div class="preloader" id="preloader">
-        <div class="preloader-bg-glow"></div>
-        <div class="preloader-grid"></div>
-
-        <div class="preloader-3d-scene" id="preloader-scene">
-            <div class="preloader-3d-card" id="preloader-card">
-                <!-- 3D Holographic Stage -->
-                <div class="preloader-holo-stage">
-                    <div class="holo-ring holo-ring-1"></div>
-                    <div class="holo-ring holo-ring-2"></div>
-                    <div class="holo-ring holo-ring-3"></div>
-                    <div class="holo-energy-pulse"></div>
-                    <div class="holo-particles">
-                        <span class="p-dot dot-1"></span>
-                        <span class="p-dot dot-2"></span>
-                        <span class="p-dot dot-3"></span>
-                        <span class="p-dot dot-4"></span>
-                    </div>
-                    <div class="holo-logo-disc">
-                        <img src="logo.png" alt="Soumonil Sarkar Logo" class="preloader-logo-3d">
-                        <div class="holo-logo-glow"></div>
-                    </div>
+        <div class="preloader-content">
+            <div class="preloader-brand">
+                <div class="preloader-spinner-wrapper">
+                    <div class="preloader-ring"></div>
+                    <img src="logo.png" alt="Soumonil Sarkar Logo" class="preloader-logo">
                 </div>
-
-                <!-- 3D Typography & Identity -->
-                <div class="preloader-text-wrap">
-                    <h1 class="preloader-title-3d">Soumonil Sarkar</h1>
-                    <p class="preloader-subtitle-3d">Web Developer & AI / ML Enthusiast</p>
+                <h2 class="preloader-title">Soumonil <span class="name-red">Sarkar</span></h2>
+            </div>
+            <div class="preloader-progress-container">
+                <div class="preloader-bar">
+                    <div class="preloader-fill" id="preloader-progress"></div>
                 </div>
-
-                <!-- 3D Progress Bar & Live Counter -->
-                <div class="preloader-progress-wrap">
-                    <div class="preloader-status-row">
-                        <span class="status-counter" id="preloader-counter">0%</span>
-                    </div>
-                    <div class="preloader-bar-3d">
-                        <div class="preloader-progress-3d" id="preloader-progress"></div>
-                        <div class="preloader-light-scan"></div>
-                    </div>
-                </div>
+                <span class="preloader-counter" id="preloader-counter">0%</span>
             </div>
         </div>
     </div>
@@ -893,6 +867,41 @@
                 </div>
 
                 <div class="certifications-timeline">
+                    <!-- Cert Item - Edunova IIT Kharagpur -->
+                    <div class="cert-timeline-item">
+                        <div class="cert-timeline-dot"></div>
+                        <div class="cert-timeline-date">September 13, 2026</div>
+                        <div class="cert-timeline-content glass-card">
+                            <div class="cert-timeline-header">
+                                <i class="fa-solid fa-brain cert-timeline-icon"></i>
+                                <div>
+                                    <span class="cert-status-badge">Workshop Program</span>
+                                    <h3>AI and Data Analytics</h3>
+                                    <span class="cert-inst">Edunova Skill <span
+                                            class="cert-meta-sep">&bull;</span> In association with IIC, IIT Kharagpur</span>
+                                </div>
+                            </div>
+                            <p class="cert-timeline-desc">Successfully completed the intensive workshop program on
+                                <strong>AI and Data Analytics</strong> conducted at the <strong>Indian Institute of Technology (IIT) Kharagpur</strong>, organized by Edunova Skill in association with the Innovation & Incubation Cell (IIC), IIT Kharagpur.
+                            </p>
+                            <div class="cert-timeline-footer">
+                                <div class="cert-footer-badges">
+                                    <div class="score-badge"><i class="fa-solid fa-graduation-cap"></i> IIT Kharagpur</div>
+                                    <div class="score-badge"><i class="fa-solid fa-certificate"></i> Edunova Skill</div>
+                                </div>
+                                <div class="cert-footer-actions">
+                                    <button class="btn btn-red btn-sm"
+                                        onclick="openCertModal('edunova_certificate.pdf', 'AI and Data Analytics - Edunova Skill & IIC IIT Kharagpur')">
+                                        <i class="fa-solid fa-eye"></i> Preview
+                                    </button>
+                                    <a href="edunova_certificate.pdf" target="_blank" class="btn btn-outline btn-sm">
+                                        <i class="fa-solid fa-up-right-from-square"></i> Open
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Cert Item 1 -->
                     <div class="cert-timeline-item">
                         <div class="cert-timeline-dot"></div>
